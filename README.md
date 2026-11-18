@@ -14,6 +14,12 @@ npm run dev
 
 Set `STORE_PIN` to a private register PIN of at least 8 characters and `POS_SESSION_SECRET` to a separate random secret of at least 32 characters in `.env` for local development. Set the same variables in the Netlify site environment for production; never commit `.env`.
 
+## Android and Google Play
+
+The site includes a web app manifest, Android-sized icons, and a public privacy policy so it can be installed as a web app. A Google Play release still needs an Android Trusted Web Activity package signed with an upload key, a Digital Asset Links statement containing the final Play signing certificate, a Play Console developer account, and the store owner's completed listing and privacy disclosures. Do not publish until the app's public support contact and reviewer access instructions are configured.
+
+The POS requires an internet connection to authenticate and read or save store data. It does not process payments.
+
 ## What is persisted
 
 - Products, prices, and stock levels are initialized with the sample catalog and stored in Netlify Blobs.
