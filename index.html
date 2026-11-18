@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f4" />
+    <title>Corner &amp; Co. — Point of Sale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="login-screen" id="login-screen" aria-labelledby="login-title">
+      <form class="login-card" id="login-form">
+        <div class="brand-mark login-brand">c<span>.</span></div>
+        <p class="eyebrow">CORNER &amp; CO. REGISTER</p>
+        <h1 id="login-title">Welcome back</h1>
+        <p class="login-copy">Enter your store PIN to open the register.</p>
+        <label class="login-label" for="store-pin">Store PIN</label>
+        <input id="store-pin" name="pin" type="password" inputmode="text" autocomplete="current-password" maxlength="128" required />
+        <p class="login-error" id="login-error" role="alert" hidden></p>
+        <button class="charge-button login-submit" type="submit">Unlock register <span>→</span></button>
+        <p class="login-footnote">Your sales and inventory are securely stored.</p>
+      </form>
+    </section>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Corner and Co home">
+          <span class="brand-mark">c<span>.</span></span>
+          <span class="brand-name">corner<span>&amp;co.</span></span>
+        </a>
+        <div class="store-switcher">
+          <div class="store-avatar">C</div>
+          <div class="store-copy"><strong>Corner Market</strong><span>Downtown store</span></div>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="nav-label">WORKSPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-item active" href="#" aria-current="page"><span class="nav-icon">▦</span> Point of sale</a>
+          <a class="nav-item" href="#" id="orders-link"><span class="nav-icon">▤</span> Orders <span class="nav-count" id="orders-count">0</span></a>
+          <a class="nav-item" href="#"><span class="nav-icon">▧</span> Products</a>
+          <a class="nav-item" href="#"><span class="nav-icon">♙</span> Customers</a>
+          <a class="nav-item" href="#"><span class="nav-icon">◷</span> Reports</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <div class="help-icon">✳</div>
+            <strong>Need a hand?</strong>
+            <p>Visit our help center for quick answers.</p>
+            <a href="mailto:hello@cornerandco.example">Get support <span>↗</span></a>
+          </div>
+          <button class="profile-button" type="button">
+            <span class="profile-avatar">JD</span>
+            <span class="profile-copy"><strong>Jamie Davis</strong><span>Store owner</span></span>
+            <span class="more">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="slash">/</span><strong>Point of sale</strong></div>
+          <div class="topbar-actions"><span class="live-status"><i></i> Register open</span><span class="top-divider"></span><span id="current-date"></span><button class="text-button" id="logout-button" type="button">Lock register</button></div>
+        </header>
+
+        <div class="content">
+          <section class="catalog">
+            <div class="page-heading">
+              <div><p class="eyebrow" id="intro-date"></p><h1>Good morning, Jamie <span>✳</span></h1><p class="subtitle">Ready for your next customer?</p></div>
+              <button class="outline-button" type="button" id="new-order"><span>＋</span> New sale</button>
+            </div>
+
+            <div class="quick-stats">
+              <div class="stat-card"><span class="stat-icon mint">↗</span><div><span class="stat-label">Today's sales</span><strong id="stat-sales">$0.00</strong></div><span class="stat-change">Today</span></div>
+              <div class="stat-card"><span class="stat-icon lilac">▤</span><div><span class="stat-label">Orders today</span><strong id="stat-orders">0</strong></div><span class="stat-note">Since opening</span></div>
+              <div class="stat-card"><span class="stat-icon peach">◷</span><div><span class="stat-label">Average order</span><strong id="stat-average">$0.00</strong></div><span class="stat-note">Today</span></div>
+            </div>
+
+            <div class="products-heading">
+              <div><h2>Explore products</h2><p>Choose an item to add it to the sale</p></div>
+              <button class="text-button" type="button" id="manage-products">Manage products <span>↗</span></button>
+            </div>
+            <div class="catalog-controls">
+              <label class="search-box"><span>⌕</span><input id="product-search" type="search" placeholder="Search products..." autocomplete="off" /><kbd>⌘ K</kbd></label>
+              <button class="filter-button" type="button" id="filter-button"><span>☷</span> Filter <span class="filter-caret">⌄</span></button>
+            </div>
+            <div class="category-tabs" role="tablist" aria-label="Product categories">
+              <button class="category-tab selected" type="button" data-category="All">All products <span>12</span></button>
+              <button class="category-tab" type="button" data-category="Grocery">Grocery</button>
+              <button class="category-tab" type="button" data-category="Drinks">Drinks</button>
+              <button class="category-tab" type="button" data-category="Home">Home &amp; living</button>
+              <button class="category-tab" type="button" data-category="Personal care">Personal care</button>
+            </div>
+            <div class="product-grid" id="product-grid" aria-live="polite"></div>
+            <div class="catalog-footer"><span id="product-count"></span><button class="text-button" type="button" id="show-all">View all products <span>→</span></button></div>
+          </section>
+
+          <aside class="checkout-panel" aria-label="Current sale">
+            <div class="checkout-header"><div><h2>Current sale</h2><p>Order <span id="order-number">#1048</span> <span class="order-dot">•</span> <span id="order-time">Just now</span></p></div><button class="more-button" id="sale-menu" type="button" aria-label="Sale options">···</button></div>
+            <button class="customer-select" id="customer-select" type="button"><span class="customer-plus">＋</span><span id="customer-label">Add a customer</span><span class="customer-arrow">⌄</span></button>
+            <div class="cart-title"><strong>Items</strong><span id="item-count">0 items</span></div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="empty-cart" id="empty-cart"><span class="empty-cart-icon">▧</span><strong>Your sale is empty</strong><p>Add products to get started</p></div>
+            <div class="cart-bottom">
+              <div class="discount-row"><button type="button" id="discount-button"><span>％</span> Add discount</button><button type="button" id="note-button"><span>▤</span> Add note</button></div>
+              <div class="totals">
+                <div><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+                  <div id="discount-total-row" hidden><span>Discount</span><strong id="discount-total">−$0.00</strong></div>
+                <div><span>Tax <button class="tax-rate" id="tax-rate" type="button">8.25% ⌄</button></span><strong id="tax">$0.00</strong></div>
+                <div class="total-row"><span>Total</span><strong id="total">$0.00</strong></div>
+              </div>
+              <button class="charge-button" type="button" id="charge-button" disabled><span>Charge</span><strong id="charge-total">$0.00</strong><span class="charge-arrow">→</span></button>
+              <p class="secure-note"><span>♧</span> Secure checkout · All transactions are encrypted</p>
+            </div>
+          </aside>
+        </div>
+        <footer class="app-footer"><span>© 2024 Corner &amp; Co.</span><span>All systems operational <i></i></span><span>Version 1.0.4</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="payment-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="modal-close" aria-label="Close dialog" type="button">×</button>
+        <div class="modal-symbol" id="modal-symbol">↗</div>
+        <p class="eyebrow" id="modal-eyebrow">COMPLETE SALE</p>
+        <h2 id="modal-title">Choose a payment method</h2>
+        <p class="modal-description" id="modal-description">Select how your customer would like to pay.</p>
+        <div class="payment-total" id="payment-total">$0.00</div>
+        <div class="payment-methods">
+          <button class="payment-option" type="button" data-payment="Card"><span class="payment-icon card-icon">▭</span><span><strong>Card payment</strong><small>Record payment taken on your terminal</small></span><span class="option-arrow">→</span></button>
+          <button class="payment-option" type="button" data-payment="Cash"><span class="payment-icon cash-icon">$</span><span><strong>Cash</strong><small>Record a cash payment</small></span><span class="option-arrow">→</span></button>
+          <button class="payment-option" type="button" data-payment="Other"><span class="payment-icon other-icon">···</span><span><strong>Other payment</strong><small>Gift card, check, and more</small></span><span class="option-arrow">→</span></button>
+        </div>
+      </section>
+    </div>
+    <div class="modal-backdrop" id="orders-backdrop" hidden>
+      <section class="orders-modal" role="dialog" aria-modal="true" aria-labelledby="orders-title">
+        <button class="modal-close" id="orders-close" aria-label="Close order history" type="button">×</button>
+        <p class="eyebrow">REGISTER HISTORY</p>
+        <h2 id="orders-title">Recent orders</h2>
+        <div class="orders-list" id="orders-list"></div>
+      </section>
+    </div>
+    <div class="modal-backdrop" id="products-backdrop" hidden>
+      <section class="orders-modal" role="dialog" aria-modal="true" aria-labelledby="products-title">
+        <button class="modal-close" id="products-close" aria-label="Close inventory" type="button">×</button>
+        <p class="eyebrow">PRODUCT CATALOG</p>
+        <h2 id="products-title">Update inventory</h2>
+        <p class="inventory-help">Edit prices and on-hand stock. Changes save to your store.</p>
+        <div class="inventory-list" id="inventory-list"></div>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
