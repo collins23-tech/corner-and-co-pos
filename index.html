@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f6f7f4" />
+    <meta name="description" content="A simple point-of-sale register for Corner & Co." />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>Corner &amp; Co. — Point of Sale</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icon.svg" />
+    <link rel="apple-touch-icon" href="/assets/icon-192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -21,7 +26,7 @@
         <input id="store-pin" name="pin" type="password" inputmode="text" autocomplete="current-password" maxlength="128" required />
         <p class="login-error" id="login-error" role="alert" hidden></p>
         <button class="charge-button login-submit" type="submit">Unlock register <span>→</span></button>
-        <p class="login-footnote">Your sales and inventory are securely stored.</p>
+        <p class="login-footnote">Your sales and inventory are securely stored. <a class="privacy-link" href="/privacy.html">Privacy policy</a></p>
       </form>
     </section>
     <div class="app-shell">
@@ -48,7 +53,7 @@
             <div class="help-icon">✳</div>
             <strong>Need a hand?</strong>
             <p>Visit our help center for quick answers.</p>
-            <a href="mailto:hello@cornerandco.example">Get support <span>↗</span></a>
+            <a href="/privacy.html">Privacy policy <span>↗</span></a>
           </div>
           <button class="profile-button" type="button">
             <span class="profile-avatar">JD</span>
@@ -115,7 +120,7 @@
             </div>
           </aside>
         </div>
-        <footer class="app-footer"><span>© 2024 Corner &amp; Co.</span><span>All systems operational <i></i></span><span>Version 1.0.4</span></footer>
+        <footer class="app-footer"><span>© 2026 Corner &amp; Co.</span><span>All systems operational <i></i></span><span>Version 1.0.4</span><a class="privacy-link" href="/privacy.html">Privacy policy</a></footer>
       </main>
     </div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
